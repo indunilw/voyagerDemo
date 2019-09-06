@@ -10,9 +10,9 @@ angular.module("PickMovieModule",[]).controller("PickMovieController",function($
         }); 
     }
     $scope.SearchMovies = function(){
-        var url = "//www.omdbapi.com/?s=" +$scope.SearchMovie+ "&apikey=a3014e29";
+        var url ="https://api.themoviedb.org/3/search/movie?api_key=7dc05f38054edcdb8ff1b1f69f884a71&language=en-US&query="+$scope.SearchMovie+"&page=1&include_adult=false";
         $http.get(url).then(function(response){
-                $scope.newmovies = response.data["Search"];
+                $scope.newmovies = response.data["results"];
         },function(message){
             alert("Something went wrong!");
         });

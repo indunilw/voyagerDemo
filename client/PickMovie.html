@@ -18,12 +18,12 @@
             <tr>
                 <th>Title</th>
                 <th>Year</th>
-                <th>Type</th>
+                <th>Description</th>
             </tr>
-            <tr ng-repeat="n in newmovies | filter : {Type : 'movie'}">
-                <th>{{n.Title}}</th>
-                <th>{{n.Year}}</th>
-                <th>{{n.Type}}</th>
+            <tr ng-repeat="n in newmovies">
+                <th>{{n.title}}</th>
+                <th>{{n.release_date}}</th>
+                <th>{{n.overview}}</th>
             </tr>
         
         </table>
