@@ -3,7 +3,7 @@
         <title>Select Movie</title>
     </head>
     <body ng-controller="PickMovieController">
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src="src/app/controllers/PickMovieController.js"></script>
 
         <h1>Choose from favorites.</h1>
@@ -20,7 +20,7 @@
                 <th>Year</th>
                 <th>Type</th>
             </tr>
-            <tr ng-repeat="n in newmovies">
+            <tr ng-repeat="n in newmovies | filter : {Type : 'movie'}">
                 <th>{{n.Title}}</th>
                 <th>{{n.Year}}</th>
                 <th>{{n.Type}}</th>
