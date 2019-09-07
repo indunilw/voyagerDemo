@@ -64,3 +64,10 @@ node_modules/
 # dotenv environment variables file
 .env
 client/node_modules/
+/server/build
+/server/dist
+/server/nbproject
+/server/setup
+/server/build.xml
+/server/web
+/server/README.md
