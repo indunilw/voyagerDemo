@@ -1,0 +1,78 @@
+[debug] [2019-09-09T08:06:03.127Z] ----------------------------------------------------------------------
+[debug] [2019-09-09T08:06:03.129Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hmanlk\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-09-09T08:06:03.129Z] CLI Version:   7.3.1
+[debug] [2019-09-09T08:06:03.129Z] Platform:      win32
+[debug] [2019-09-09T08:06:03.129Z] Node Version:  v10.16.2
+[debug] [2019-09-09T08:06:03.130Z] Time:          Mon Sep 09 2019 13:36:03 GMT+0530 (India Standard Time)
+[debug] [2019-09-09T08:06:03.130Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-09-09T08:06:03.136Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-09-09T08:06:03.136Z] > authorizing via signed-in user
+[debug] [2019-09-09T08:06:03.136Z] [iam] checking project imdbokaz for permissions ["firebase.projects.get"]
+[debug] [2019-09-09T08:06:03.137Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/imdbokaz:testIamPermissions  
+
+[debug] [2019-09-09T08:06:04.938Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-09T08:06:04.943Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/imdbokaz  
+ 
+[debug] [2019-09-09T08:06:05.442Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Movie Repo\Planner\voyagerDemo'...
+[info] 
+[debug] [2019-09-09T08:06:05.457Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/imdbokaz/webApps/-/config  
+ 
+[debug] [2019-09-09T08:06:06.288Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2019-09-09T08:42:03.180Z] ----------------------------------------------------------------------
+[debug] [2019-09-09T08:42:03.182Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hmanlk\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-09-09T08:42:03.182Z] CLI Version:   7.3.1
+[debug] [2019-09-09T08:42:03.183Z] Platform:      win32
+[debug] [2019-09-09T08:42:03.183Z] Node Version:  v10.16.2
+[debug] [2019-09-09T08:42:03.183Z] Time:          Mon Sep 09 2019 14:12:03 GMT+0530 (India Standard Time)
+[debug] [2019-09-09T08:42:03.183Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-09-09T08:42:03.190Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-09-09T08:42:03.190Z] > authorizing via signed-in user
+[debug] [2019-09-09T08:42:03.190Z] [iam] checking project imdbokaz for permissions ["firebase.projects.get"]
+[debug] [2019-09-09T08:42:03.192Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/imdbokaz:testIamPermissions  
+
+[debug] [2019-09-09T08:42:04.796Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-09T08:42:04.802Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/imdbokaz  
+ 
+[debug] [2019-09-09T08:42:05.410Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Movie Repo\Planner\voyagerDemo'...
+[info] 
+[debug] [2019-09-09T08:42:05.420Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/imdbokaz/webApps/-/config  
+ 
+[debug] [2019-09-09T08:42:06.349Z] <<< HTTP RESPONSE 200
+[warn] !  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:5005
+[debug] [2019-09-09T08:43:16.963Z] ----------------------------------------------------------------------
+[debug] [2019-09-09T08:43:16.966Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hmanlk\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-09-09T08:43:16.966Z] CLI Version:   7.3.1
+[debug] [2019-09-09T08:43:16.966Z] Platform:      win32
+[debug] [2019-09-09T08:43:16.966Z] Node Version:  v10.16.2
+[debug] [2019-09-09T08:43:16.967Z] Time:          Mon Sep 09 2019 14:13:16 GMT+0530 (India Standard Time)
+[debug] [2019-09-09T08:43:16.967Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-09-09T08:43:16.973Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-09-09T08:43:16.974Z] > authorizing via signed-in user
+[debug] [2019-09-09T08:43:16.974Z] [iam] checking project imdbokaz for permissions ["firebase.projects.get"]
+[debug] [2019-09-09T08:43:16.975Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/imdbokaz:testIamPermissions  
+
+[debug] [2019-09-09T08:43:18.743Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-09T08:43:18.749Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/imdbokaz  
+ 
+[debug] [2019-09-09T08:43:19.155Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Movie Repo\Planner\voyagerDemo'...
+[info] 
+[debug] [2019-09-09T08:43:19.164Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/imdbokaz/webApps/-/config  
+ 
+[debug] [2019-09-09T08:43:19.987Z] <<< HTTP RESPONSE 200
+[warn] !  hosting: Port 5000 is not available. Trying another port...
+[warn] !  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:5010
