@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="row alerts-container" data-ng-controller="AlertsCtrl" data-ng-show="alerts.length">
+        <div class="col-xs-12">
+          <uib-alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+        </div>
+      </div>
+    <div class="col-lg-6">
+        <rd-widget>
+          <rd-widget-header icon="fa-star fa-spin" title="Choose from favorites">
+          </rd-widget-header>
+          <rd-widget-body classes="large no-padding">
+            <div class="table-responsive">
+              <table class="table" ng-init="getMovies()">
+                  <thead>
+                      <tr><th class="text-center">Title</th><th>Year</th><th>Description</th><th>Rating</th><th>Poster</th></tr>
+                    </thead>
+                    
+                <tbody ng-repeat="s in MoviesNew track by $index" >
+                  <tr><td>{{s.title}}</td><td>{{s.release_date}}</td><td>{{s.overview}}</td><td><span tooltip="Rating" class="text-success">{{s.vote_average}}</span></td><td><img ng-src="http://image.tmdb.org/t/p/w185//{{s.img}}"></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </rd-widget-body>
+        </rd-widget>
+      </div>
+  <div class="col-lg-6">
+		<rd-widget>
+			<rd-widget-header icon="fa-film" title="Search Movies">
+        <input type="text" placeholder="Search" class="form-control input-sm" ng-model="formData.SearchMovies" ng-keypress="getExistingMovies()"/>
+			</rd-widget-header>
+			<rd-widget-body classes="large no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr><th class="text-center">Title</th><th>Year</th><th>Description</th><th>Rating</th><th>Poster</th></tr>
+						</thead>
+						<tbody ng-repeat="s in ExistMovies | orderBy : 'release_date' : true  track by $index">
+                <tr ng-click="setClickedRow($index )"><td>{{$index}}</td><td>{{s.title}}</td><td>{{s.release_date}}</td><td>{{s.overview}}</td><td><span tooltip="Rating" class="text-success">{{s.vote_average}}</span></td><td><img ng-src="http://image.tmdb.org/t/p/w185//{{s.poster_path}}"></td></tr>
+						</tbody>
+          </table>
+        		</div>
+			</rd-widget-body>
+		<rd-widget>
+  </div>
+  <div  class="col-lg-6">
+      <button class="btn btn-l btn-primary" ng-click="Save()">Save</button>
+      <button class="btn btn-l btn-default" ng-click="Cancel()">Cancel</button>
+  </div>
+</div>

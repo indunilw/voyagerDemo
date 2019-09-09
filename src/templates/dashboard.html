@@ -1,0 +1,133 @@
+<div class="row alerts-container" data-ng-controller="AlertsCtrl" data-ng-show="alerts.length">
+  <div class="col-xs-12">
+    <uib-alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body>
+				<div class="widget-icon green pull-left">
+					<i class="fa fa-users"></i>
+				</div>
+				<div class="title">28</div>
+				<div class="comment">Total Users</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body>
+				<div class="widget-icon red pull-left">
+					<i class="fa fa-users"></i>
+				</div>
+				<div class="title">10</div>
+				<div class="comment">Not Submitted</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body>
+				<div class="widget-icon blue pull-left">
+					<i class="fa fa-film"></i>
+				</div>
+				<div class="title">15</div>
+				<div class="comment">Movies</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<!--<div class="col-lg-3 col-md-6 col-xs-12">
+		<rd-widget>
+			<rd-widget-body>
+				<div class="widget-icon blue pull-left">
+					<i class="fa fa-support"></i>
+				</div>
+				<div class="title">62</div>
+				<div class="comment">Tickets</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>-->
+</div>
+
+<div class="row">
+	<div class="col-lg-6">
+		<rd-widget>
+      		<rd-widget-header icon="fa-tasks" title="Selected Movies">
+				<a href="#">Manage</a>
+      		</rd-widget-header>
+      		<rd-widget-body classes="medium no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+							<tr><td>Avengers</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Batman</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Spiderman</td><td>Description</td><td><span tooltip="Server Down!" class="text-danger"><i class="fa fa-warning"></i></span></td></tr>
+							<tr><td>Superman</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Hulk</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Thor</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Titanic</td><td>Description</td><td><span tooltip="Server Down!" class="text-danger"><i class="fa fa-warning"></i></span></td></tr>
+							<tr><td>Shawshank redemption</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Mission impossible</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td>Angry Birds</td><td>Description</td><td><span tooltip="Could not connect!" class="text-warning"><i class="fa fa-flash"></i></span></td></tr>
+							<tr><td>Captain marvel</td><td>Description</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+	<div class="col-lg-6">
+		<rd-widget>
+			<rd-widget-header icon="fa-users" title="Users">
+				<input type="text" placeholder="Search" class="form-control input-sm" />
+			</rd-widget-header>
+			<rd-widget-body classes="medium no-padding">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr><th class="text-center">ID</th><th>Username</th><th>Role</th><th>Submitted</th></tr>
+						</thead>
+						<tbody>
+							<tr><td class="text-center">1</td><td>Sunella Fernando</td><td>Super Admin</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td class="text-center">2</td><td>Indunil Withana </td><td>Admin</td><td><span tooltip="Not Submitted!" class="text-danger"><i class="fa fa-warning"></i></span></td></tr>
+							<tr><td class="text-center">3</td><td>Srinima Chandrathilake</td><td>User</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td class="text-center">3</td><td>Achintha Premaratne</td><td>User</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+							<tr><td class="text-center">3</td><td>Dilini Dandeniya </td><td>User</td><td><span tooltip="Not Submitted!" class="text-danger"><i class="fa fa-warning"></i></span></td></tr>
+						</tbody>
+					</table>
+        		</div>
+			</rd-widget-body>
+		<rd-widget>
+	</div>
+</div>
+
+<!--<div class="row">
+	<div class="col-lg-6">
+   		<rd-widget>
+   			<rd-widget-header icon="fa-plus" title="Extras">
+   				<button class="btn btn-sm btn-info">Button</button>
+   			</rd-widget-header>
+   			<rd-widget-body>
+				<div class="message">
+					This is a standard message which will also work the ".no-padding" class, I can also <span class="error">be an error message!</span>
+				</div>
+				<hr />
+				<div class="message">
+					<a href="http://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap</a> is included, so you can use <a href="#" tooltip="I'm a tooltip!">tooltips</a> and all of the other native Bootstrap JS components!
+				</div>
+   			</rd-widget-body>
+   		</rd-widget>
+	</div>
+	<div class="col-lg-6">
+		<rd-widget>
+			<rd-widget-header icon="fa-cog fa-spin" title="Loading Directive">
+				<a href="http://tobiasahlin.com/spinkit/" target="_blank">SpinKit</a>
+			</rd-widget-header>
+			<rd-widget-body>
+				<rd-loading></rd-loading>
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>-->
