@@ -8,10 +8,12 @@ angular
 
 function AlertsCtrl($scope) {
     $scope.alerts = [{
-        type: 'success',
+        type: 'info',
         msg: 'Thanks for visiting! Feel free to select a movie that you wish!'
-    },{
-        type: 'success',
+    }];
+
+    $scope.alerts2 =[{
+        type: 'info',
         msg: 'Choose a movie from current favorites or feel free to choose a new one!'
     }];
 
@@ -24,4 +26,7 @@ function AlertsCtrl($scope) {
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
     };
+    $scope.closeAlert2 = function(index){
+        $scope.alerts2.splice(index,1);
+    }
 }

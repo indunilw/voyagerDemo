@@ -14,6 +14,8 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.formData ={};
     $scope.MoviesNew= [];
     $scope.selectedRow = 999;
+    $scope.variablechange ="Choose from Favorites";
+
 
     $scope.getWidth = function() {
         return window.innerWidth;
@@ -144,9 +146,18 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.Cancel = function(){
         window.location = '#/';
     }
+    $scope.setClickedRowFav = function(index){
+        $scope.selectedRowFav = index;
+    }
 
     $scope.setClickedRow = function(index){
         $scope.selectedRow = index;
 
+    }
+    $scope.ButtonSwitchFav = function(){
+        $scope.variable=false;
+    }
+    $scope.ButtonSwitchSear = function(){
+        $scope.variable=true;
     }
 }
