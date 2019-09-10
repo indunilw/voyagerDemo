@@ -18,9 +18,15 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('tables', {
                 url: '/tables',
                 templateUrl: 'templates/tables.html'
-            }).state('movies',{
+            })
+            .state('movies',{
                 url: '/movies',
                 templateUrl: 'json/favorites.json'
+            })
+            .state('popup',{
+                url: '/popup',
+                templateUrl: 'templates/MovieCard.html'
             });
+            
     }
 ]);

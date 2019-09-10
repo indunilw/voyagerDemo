@@ -2,14 +2,41 @@
 <html lang="en" ng-app="RDash">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-	<title>RDash AngularJS</title>
+  <title>RDash AngularJS</title>
+  
+  <style>
+      th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+      }
+      
+      td,
+      th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      body {
+        background-color: lightblue;
+      }
+      
+      active {
+        background-color: orange;
+      }
+    </style>
+
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+  <link rel="stylesheet" type="text/css" href="components/angular-material/angular-material.css">
+  
   <!-- endbuild -->
   <!-- SCRIPTS -->
   <!-- build:js lib/js/main.min.js -->
@@ -20,12 +47,21 @@
   <!-- endbuild -->
   <!-- Custom Scripts -->
   <script type="text/javascript" src="js/dashboard.min.js"></script>
+  
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-aria/angular-aria.js"></script>
+    <script src="/node_modules/angular-animate/angular-animate.js"></script>
+    <script src="/node_modules/angular-messages/angular-messages.js"></script>
+    <script src="/node_modules/angular-material/angular-material.js"></script>
+    <script src="https://code.angularjs.org/1.2.18/angular.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+    
 </head>
-<body ng-controller="MasterCtrl">
+<body ng-controller="MasterCtrl", ng-app="YourApp">
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
     <!-- Sidebar -->

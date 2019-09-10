@@ -13,6 +13,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.ExistMovies = [];
     $scope.formData ={};
     $scope.MoviesNew= [];
+    $scope.MovieDetails= [];
     $scope.selectedRow = 999;
     $scope.variablechange ="Choose from Favorites";
 
@@ -86,6 +87,25 @@ function MasterCtrl($scope, $cookieStore,$http) {
             alert("Something not correct!");
         });
     }
+
+    $scope.getMovie = function(){
+        var url = "#/movies";
+        $http.get(url).then(function(response){
+            $scope.MoviesNew = [
+                {
+                    "title":"The Angry Birds Movie 2",
+                    "release_date":"2019-08-14",
+                    "overview":"Red, Chuck, Bomb and the rest of their feathered friends are surprised when a green pig suggests that they put aside their differences and unite to fight a common threat. Aggressive birds from an island covered in ice are planning to use an elaborate weapon to destroy the fowl and swine.",
+                    "vote_average":"6",
+                    "img":"/ebe8hJRCwdflNQbUjRrfmqtUiNi.jpg"
+                },
+               
+            ];
+        },function(message){
+            alert("Something not correct!");
+        });
+    }
+
     $scope.Save = function(){
         window.location = '#/';
     }
@@ -106,4 +126,62 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.ButtonSwitchSear = function(){
         $scope.variable=true;
     }
+    $scope.ShowDetails = function(){
+        window.location = '#/popup';
+    }
+
+    
 }
+
+// angular.module('dialogDemo3', ['ngMaterial'])
+//   .config(function ($mdThemingProvider) {
+//     $mdThemingProvider.theme('red')
+//       .primaryPalette('red');
+
+//     $mdThemingProvider.theme('blue')
+//       .primaryPalette('blue');
+
+//   })
+// .controller('AppCtrl', function($scope, $mdDialog, $interval) {
+//   $scope.theme = 'red';
+
+//   var isThemeRed = true;
+
+//   $interval(function () {
+//     $scope.theme = isThemeRed ? 'blue' : 'red';
+
+//     isThemeRed = !isThemeRed;
+//   }, 2000);
+
+//   $scope.showAdvanced = function(ev) {
+//     $mdDialog.show({
+//       controller: DialogController,
+//       templateUrl: 'dialog1.tmpl.html',
+//       parent: angular.element(document.body),
+//       targetEvent: ev,
+//       clickOutsideToClose:true
+//     })
+//     .then(function(answer) {
+//       $scope.status = 'You said the information was "' + answer + '".';
+//     }, function() {
+//       $scope.status = 'You cancelled the dialog.';
+//     });
+//   };
+
+//   function DialogController($scope, $mdDialog) {
+//     $scope.hide = function() {
+//       $mdDialog.hide();
+//     };
+
+//     $scope.cancel = function() {
+//       $mdDialog.cancel();
+//     };
+
+//     $scope.answer = function(answer) {
+//       $mdDialog.hide(answer);
+//     };
+//   }
+// });
+
+
+

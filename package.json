@@ -21,6 +21,7 @@
     "gulp-wrap": "^0.11.0"
   },
   "dependencies": {
+    "angular-material": "http://github.com/angular/bower-material/tarball/v1.1.9",
     "bootstrap4-toggle": "^3.5.0"
   }
 }
