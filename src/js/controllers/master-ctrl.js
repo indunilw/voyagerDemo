@@ -11,11 +11,13 @@ function MasterCtrl($scope, $cookieStore,$http) {
      */
     var mobileView = 992;
     $scope.ExistMovies = [];
+    $scope.HideSave =true;
+    $scope.ShowAlert = false;
     $scope.formData ={};
     $scope.MoviesNew= [];
     $scope.MovieDetails= [];
     $scope.selectedRow = 999;
-    $scope.variablechange ="Choose from Favorites";
+    $scope.variablechange ="Search Movies";
 
 
     $scope.getWidth = function() {
@@ -39,6 +41,19 @@ function MasterCtrl($scope, $cookieStore,$http) {
         $scope.toggle = !$scope.toggle;
         $cookieStore.put('toggle', $scope.toggle);
     };
+
+    $scope.getUsers = function() {
+        $scope.users = 28;
+    };
+
+    $scope.getNotSubmitted = function() {
+        $scope.notSubmitted = 15;
+    };
+
+    $scope.getNoOfMovies = function() {
+        $scope.movies = 12;
+    };
+
 
     window.onresize = function() {
         $scope.$apply();
@@ -105,26 +120,27 @@ function MasterCtrl($scope, $cookieStore,$http) {
             alert("Something not correct!");
         });
     }
-
     $scope.Save = function(){
-        window.location = '#/';
+        //window.location = '#/';
+        $scope.ShowAlert = true;
     }
     $scope.Cancel = function(){
         window.location = '#/';
     }
     $scope.setClickedRowFav = function(index){
         $scope.selectedRowFav = index;
+        $scope.selectedRow = null;
+        $scope.HideSave = false;
     }
 
     $scope.setClickedRow = function(index){
         $scope.selectedRow = index;
-
+        $scope.selectedRowFav = null;
+        $scope.HideSave = false;
     }
-    $scope.ButtonSwitchFav = function(){
-        $scope.variable=false;
-    }
-    $scope.ButtonSwitchSear = function(){
-        $scope.variable=true;
+    $scope.ButtonSwitch = function(){
+        $scope.variable=!$scope.variable;
+        $scope.variablechange =$scope.variable? "Choose from Favorites":"Search Movies";
     }
     $scope.ShowDetails = function(){
         window.location = '#/popup';
@@ -133,55 +149,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
     
 }
 
-// angular.module('dialogDemo3', ['ngMaterial'])
-//   .config(function ($mdThemingProvider) {
-//     $mdThemingProvider.theme('red')
-//       .primaryPalette('red');
 
-//     $mdThemingProvider.theme('blue')
-//       .primaryPalette('blue');
-
-//   })
-// .controller('AppCtrl', function($scope, $mdDialog, $interval) {
-//   $scope.theme = 'red';
-
-//   var isThemeRed = true;
-
-//   $interval(function () {
-//     $scope.theme = isThemeRed ? 'blue' : 'red';
-
-//     isThemeRed = !isThemeRed;
-//   }, 2000);
-
-//   $scope.showAdvanced = function(ev) {
-//     $mdDialog.show({
-//       controller: DialogController,
-//       templateUrl: 'dialog1.tmpl.html',
-//       parent: angular.element(document.body),
-//       targetEvent: ev,
-//       clickOutsideToClose:true
-//     })
-//     .then(function(answer) {
-//       $scope.status = 'You said the information was "' + answer + '".';
-//     }, function() {
-//       $scope.status = 'You cancelled the dialog.';
-//     });
-//   };
-
-//   function DialogController($scope, $mdDialog) {
-//     $scope.hide = function() {
-//       $mdDialog.hide();
-//     };
-
-//     $scope.cancel = function() {
-//       $mdDialog.cancel();
-//     };
-
-//     $scope.answer = function(answer) {
-//       $mdDialog.hide(answer);
-//     };
-//   }
-// });
 
 
 

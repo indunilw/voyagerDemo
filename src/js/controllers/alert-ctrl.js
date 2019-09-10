@@ -13,8 +13,8 @@ function AlertsCtrl($scope) {
     }];
 
     $scope.alerts2 =[{
-        type: 'info',
-        msg: 'Choose a movie from current favorites or feel free to choose a new one!'
+        type: 'success',
+        msg: 'Thank you!.  Your response has been submitted.'
     }];
 
     $scope.addAlert = function() {
