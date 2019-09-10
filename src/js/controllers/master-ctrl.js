@@ -11,10 +11,12 @@ function MasterCtrl($scope, $cookieStore,$http) {
      */
     var mobileView = 992;
     $scope.ExistMovies = [];
+    $scope.HideSave =true;
+    $scope.ShowAlert = false;
     $scope.formData ={};
     $scope.MoviesNew= [];
     $scope.selectedRow = 999;
-    $scope.variablechange ="Choose from Favorites";
+    $scope.variablechange ="Search Movies";
 
 
     $scope.getWidth = function() {
@@ -87,23 +89,26 @@ function MasterCtrl($scope, $cookieStore,$http) {
         });
     }
     $scope.Save = function(){
-        window.location = '#/';
+        //window.location = '#/';
+        $scope.ShowAlert = true;
     }
     $scope.Cancel = function(){
         window.location = '#/';
     }
     $scope.setClickedRowFav = function(index){
         $scope.selectedRowFav = index;
+        $scope.selectedRow = null;
+        $scope.HideSave = false;
     }
 
     $scope.setClickedRow = function(index){
         $scope.selectedRow = index;
-
+        $scope.selectedRowFav = null;
+        $scope.HideSave = false;
     }
-    $scope.ButtonSwitchFav = function(){
-        $scope.variable=false;
+    $scope.ButtonSwitch = function(){
+        $scope.variable=!$scope.variable;
+        $scope.variablechange =$scope.variable? "Choose from Favorites":"Search Movies";
     }
-    $scope.ButtonSwitchSear = function(){
-        $scope.variable=true;
-    }
+   
 }
