@@ -41,6 +41,19 @@ function MasterCtrl($scope, $cookieStore,$http) {
         $cookieStore.put('toggle', $scope.toggle);
     };
 
+    $scope.getUsers = function() {
+        $scope.users = 28;
+    };
+
+    $scope.getNotSubmitted = function() {
+        $scope.notSubmitted = 15;
+    };
+
+    $scope.getNoOfMovies = function() {
+        $scope.movies = 12;
+    };
+
+
     window.onresize = function() {
         $scope.$apply();
     };
@@ -83,6 +96,47 @@ function MasterCtrl($scope, $cookieStore,$http) {
                     "vote_average":"6.6",
                     "img":"/kyjTDE5vldkUpJGErAvqYY6J92M.jpg"
                 }
+            ];
+        },function(message){
+            alert("Something not correct!");
+        });
+    }
+
+    $scope.getUserDetails = function(){
+        var url = "#/movies";
+        $http.get(url).then(function(response){
+            $scope.UserDetails = [
+                {
+                    "id":"1",
+                    "user_name":"Sunella Fernando",
+                    "role":"Admin",
+                    "submitted":"Yes"
+                },
+                {
+                    "id":"2",
+                    "user_name":"Dilini Dandeniya",
+                    "role":"User",
+                    "submitted":"NO"
+                },
+                {
+                    "id":"3",
+                    "user_name":"Harry Manoharan",
+                    "role":"User",
+                    "submitted":"Yes"
+                },
+                {
+                    "id":"4",
+                    "user_name":"Achintha Premarathne",
+                    "role":"User",
+                    "submitted":"Yes"
+                },
+                {
+                    "id":"5",
+                    "user_name":"Indunil Withana",
+                    "role":"User",
+                    "submitted":"Yes"
+                }
+
             ];
         },function(message){
             alert("Something not correct!");
