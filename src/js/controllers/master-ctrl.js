@@ -11,10 +11,13 @@ function MasterCtrl($scope, $cookieStore,$http) {
      */
     var mobileView = 992;
     $scope.ExistMovies = [];
+    $scope.HideSave =true;
+    $scope.ShowAlert = false;
     $scope.formData ={};
     $scope.MoviesNew= [];
+    $scope.MovieDetails= [];
     $scope.selectedRow = 999;
-    $scope.variablechange ="Choose from Favorites";
+    $scope.variablechange ="Search Movies";
 
 
     $scope.getWidth = function() {
@@ -100,64 +103,53 @@ function MasterCtrl($scope, $cookieStore,$http) {
         });
     }
 
-    $scope.getUserDetails = function(){
+    $scope.getMovie = function(){
         var url = "#/movies";
         $http.get(url).then(function(response){
-            $scope.UserDetails = [
+            $scope.MoviesNew = [
                 {
-                    "id":"1",
-                    "user_name":"Sunella Fernando",
-                    "role":"Admin",
-                    "submitted":"Yes"
+                    "title":"The Angry Birds Movie 2",
+                    "release_date":"2019-08-14",
+                    "overview":"Red, Chuck, Bomb and the rest of their feathered friends are surprised when a green pig suggests that they put aside their differences and unite to fight a common threat. Aggressive birds from an island covered in ice are planning to use an elaborate weapon to destroy the fowl and swine.",
+                    "vote_average":"6",
+                    "img":"/ebe8hJRCwdflNQbUjRrfmqtUiNi.jpg"
                 },
-                {
-                    "id":"2",
-                    "user_name":"Dilini Dandeniya",
-                    "role":"User",
-                    "submitted":"NO"
-                },
-                {
-                    "id":"3",
-                    "user_name":"Harry Manoharan",
-                    "role":"User",
-                    "submitted":"Yes"
-                },
-                {
-                    "id":"4",
-                    "user_name":"Achintha Premarathne",
-                    "role":"User",
-                    "submitted":"Yes"
-                },
-                {
-                    "id":"5",
-                    "user_name":"Indunil Withana",
-                    "role":"User",
-                    "submitted":"Yes"
-                }
-
+               
             ];
         },function(message){
             alert("Something not correct!");
         });
     }
     $scope.Save = function(){
-        window.location = '#/';
+        //window.location = '#/';
+        $scope.ShowAlert = true;
     }
     $scope.Cancel = function(){
         window.location = '#/';
     }
     $scope.setClickedRowFav = function(index){
         $scope.selectedRowFav = index;
+        $scope.selectedRow = null;
+        $scope.HideSave = false;
     }
 
     $scope.setClickedRow = function(index){
         $scope.selectedRow = index;
+        $scope.selectedRowFav = null;
+        $scope.HideSave = false;
+    }
+    $scope.ButtonSwitch = function(){
+        $scope.variable=!$scope.variable;
+        $scope.variablechange =$scope.variable? "Choose from Favorites":"Search Movies";
+    }
+    $scope.ShowDetails = function(){
+        window.location = '#/popup';
+    }
 
-    }
-    $scope.ButtonSwitchFav = function(){
-        $scope.variable=false;
-    }
-    $scope.ButtonSwitchSear = function(){
-        $scope.variable=true;
-    }
+    
 }
+
+
+
+
+
