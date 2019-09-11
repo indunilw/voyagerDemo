@@ -22,7 +22,7 @@
 				<div class="widget-icon red pull-left">
 					<i class="fa fa-users"></i>
 				</div>
-				<div class="title" ng-init="getNotSubmitted()"">{{notSubmitted}}</div>
+				<div class="title" ng-init="getNotSubmitted()">{{notSubmitted}}</div>
 				<div class="comment">Not Submitted</div>
 			</rd-widget-body>
 		</rd-widget>
@@ -67,7 +67,7 @@
 								</tr>
 							  </thead>
 							<tbody ng-repeat="s in MoviesNew track by $index" >
-								<tr ng-click="setClickedRow($index )"><td>{{s.title}}</td><td><img ng-src="http://image.tmdb.org/t/p/w185//{{s.img}}"></td></tr>
+								<tr ng-click="setClickedRowFav($index)" ng-class="{'success':$index==selectedRowFav}"><td>{{s.title}}</td><td><img ng-src="http://image.tmdb.org/t/p/w185//{{s.img}}"></td></tr>
 							  </tbody> 
 							
 						</table>
