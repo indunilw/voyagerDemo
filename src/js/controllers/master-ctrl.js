@@ -18,6 +18,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.MovieDetails= [];
     $scope.selectedRow = 999;
     $scope.variablechange ="Search Movies";
+    $scope.MovieCount=0;
 
 
     $scope.getWidth = function() {
@@ -43,7 +44,12 @@ function MasterCtrl($scope, $cookieStore,$http) {
     };
 
     $scope.getUsers = function() {
-        $scope.users = 28;
+        var url="https://imdbokazservice.herokuapp.com/getuser";
+        $http.get(url).then(function(response){
+            $scope.UserCount = response.data;
+        },function(message){
+            alert("Error!");
+        });
     };
 
     $scope.getNotSubmitted = function() {
@@ -51,7 +57,12 @@ function MasterCtrl($scope, $cookieStore,$http) {
     };
 
     $scope.getNoOfMovies = function() {
-        $scope.movies = 12;
+       var url="https://imdbokazservice.herokuapp.com/getMovies";
+       $http.get(url).then(function(response){
+            $scope.MovieCount = response.data;
+       },function(message){
+            alert("Error!");
+       });
     };
 
 
@@ -73,36 +84,22 @@ function MasterCtrl($scope, $cookieStore,$http) {
     }
 
     $scope.getMovies = function(){
-        var url = "#/movies";
+        var url = "https://imdbokazservice.herokuapp.com/getMovies";
         $http.get(url).then(function(response){
-            $scope.MoviesNew = [
-                {
-                    "title":"The Angry Birds Movie 2",
-                    "release_date":"2019-08-14",
-                    "overview":"Red, Chuck, Bomb and the rest of their feathered friends are surprised when a green pig suggests that they put aside their differences and unite to fight a common threat. Aggressive birds from an island covered in ice are planning to use an elaborate weapon to destroy the fowl and swine.",
-                    "vote_average":"6",
-                    "img":"/ebe8hJRCwdflNQbUjRrfmqtUiNi.jpg"
-                },
-                {
-                    "title":"Avengers: Endgame",
-                    "release_date":"2019-04-26",
-                    "overview":"After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
-                    "vote_average":"8.3",
-                    "img":"/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-                },
-                {
-                    "title":"The Dark Knight",
-                    "release_date":"2011-07-11",
-                    "overview":"In a post-apocalyptic world ravaged by feuding warlords, a group of desperate soldiers hatch a plan to steal a Warlord's treasure and start a new life. Faced with the threat of a horrific death at the hands of the Warlord's executioners, the men escape into a desolate and forbidden land known only as the Shadowlands. Now the men must flee from the Warlord's vicious assassins while defending themselves from the terrifying creatures that inhabit the land.",
-                    "vote_average":"6.6",
-                    "img":"/kyjTDE5vldkUpJGErAvqYY6J92M.jpg"
-                }
-            ];
+            $scope.MoviesNew = response.data;
         },function(message){
             alert("Something not correct!");
         });
     }
 
+    $scope.getUserDetails = function(){
+        var url = "https://imdbokazservice.herokuapp.com/getuser";
+        $http.get(url).then(function(response){
+            $scope.UserDetails = response.data;
+        },function(message){
+            alert("Something not correct!");
+        });
+    }
     $scope.getMovie = function(){
         var url = "#/movies";
         $http.get(url).then(function(response){
