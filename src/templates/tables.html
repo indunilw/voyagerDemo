@@ -15,11 +15,11 @@
             <div class="table-responsive">
               <table class="table" ng-init="getMovies()">
                   <thead>
-                      <tr><th>Title</th><th>Year</th><th>Description</th><th>Rating</th><!--<th>Poster</th>--></tr>
+                      <tr><th>Title</th><th>Description</th><th>Release Date</th><th>Rating</th><th>Poster</th></tr>
                     </thead>
                     
                 <tbody ng-repeat="s in MoviesNew track by $index" >
-                  <tr ng-click="setClickedRowFav($index)" ng-class="{'success':$index==selectedRowFav}"><td>{{s.title}}</td><td>{{s.release_date}}</td><td>{{s.overview}}</td><td><span tooltip="Rating" class="text-success">{{s.vote_average}}</span></td><!--<td><img ng-src="http://image.tmdb.org/t/p/w185//{{s.img}}"></td>--></tr>
+                  <tr ng-click="setClickedRowFav($index)" ng-class="{'info':$index==selectedRowFav}"><td>{{s.title}}</td><td>{{s.description}}</td><td>{{s.year}}</td><td><span tooltip="Rating" class="text-success">{{s.rating}}</span></td><td><img class="img-circle" width="30px" height="30px" ng-src="http://image.tmdb.org/t/p/w185//{{s.poster_url}}"></td</tr>
                 </tbody>
               </table>
             </div>
@@ -35,10 +35,10 @@
 				<div class="table-responsive">
 					<table class="table table-striped table-hover">
 						<thead>
-							<tr><th>Title</th><th>Year</th><th>Description</th><th>Rating</th><!--<th>Poster</th>--></tr>
+							<tr><th>Title</th><th>Description</th><th>Release Date</th><th>Rating</th><th>Poster</th></tr>
 						</thead>
-						<tbody ng-repeat="s in ExistMovies | orderBy : 'release_date' : true  track by $index">
-                <tr ng-click="setClickedRow($index )" ng-class="{'success' :$index==selectedRow}"><td>{{s.title}}</td><td>{{s.release_date}}</td><td>{{s.overview}}</td><td><span tooltip="Rating" class="text-success">{{s.vote_average}}</span></td><!--<td><img ng-src="http://image.tmdb.org/t/p/w185//{{s.poster_path}}"></td--></tr>
+						<tbody ng-repeat="s in ExistMovies track by $index">
+                <tr ng-click="setClickedRow($index )" ng-class="{'info' :$index==selectedRow}"><td>{{s.title}}</td><td>{{s.overview}}</td><td>{{s.release_date}}</td><td><span tooltip="Rating" class="text-success">{{s.vote_average}}</span></td><td><img class="img-circle" width="30px" height="30px" ng-src="http://image.tmdb.org/t/p/w185//{{s.poster_path}}"></td></tr>
 						</tbody>
           </table>
         		</div>
