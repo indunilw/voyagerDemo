@@ -67,7 +67,7 @@
 								</tr>
 							  </thead>
 							<tbody ng-repeat="s in MoviesNew track by $index" >
-								<tr ng-click="setClickedRowFav($index)" ng-class="{'success':$index==selectedRowFav}"><td>{{s.movie_name}}</td><td><img ng-src="{{s.poster_url}}"></td></tr>
+								<tr ng-click="setClickedRowFav($index)" ng-class="{'success':$index==selectedRowFav}"><td>{{s.title}}</td><td><img ng-src="{{s.poster_url}}"></td></tr>
 							  </tbody> 
 							
 						</table>

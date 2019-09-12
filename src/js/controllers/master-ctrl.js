@@ -19,6 +19,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.selectedRow = 999;
     $scope.variablechange ="Search Movies";
     $scope.MovieCount=0;
+    $scope.MovieListDb={};
 
 
     $scope.getWidth = function() {
@@ -118,8 +119,27 @@ function MasterCtrl($scope, $cookieStore,$http) {
         });
     }
     $scope.Save = function(){
-        //window.location = '#/';
-        $scope.ShowAlert = true;
+        if($scope.selectedRow !=null){
+            $scope.MovieListDb={
+                "movie_id":"null",
+                "tmdb_id":$scope.ExistMovies[$scope.selectedRow].id,
+                "title":$scope.ExistMovies[$scope.selectedRow].title,
+                "description":$scope.ExistMovies[$scope.selectedRow].overview,
+                "rating":$scope.ExistMovies[$scope.selectedRow].vote_average,
+                "genere":"null",
+                "poster_url":$scope.ExistMovies[$scope.selectedRow].poster_path,
+                "year":$scope.ExistMovies[$scope.selectedRow].release_date
+            };
+            var url = "https://imdbokazservice.herokuapp.com/addMovie";
+            $http.post(url,$scope.MovieListDb).then(function(){
+                $scope.ShowAlert=true;
+                $scope.getMovies();
+            },function(){
+            alert("Something is not correct");
+            });
+        }else{
+            //post to mapper table.
+        }
     }
     $scope.Cancel = function(){
         window.location = '#/';
