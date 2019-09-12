@@ -52,8 +52,13 @@ function MasterCtrl($scope, $cookieStore,$http) {
         });
     };
 
-    $scope.getNotSubmitted = function() {
-        $scope.notSubmitted = 15;
+    $scope.geSubmitted = function() {
+        var url="https://imdbokazservice.herokuapp.com/getAllMapper";
+        $http.get(url).then(function(response){
+            $scope.SubmitCount = response.data;
+        },function(message){
+            alert("Error!");
+        });
     };
 
     $scope.getNoOfMovies = function() {
