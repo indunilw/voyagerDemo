@@ -59,7 +59,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
         });
     };
 
-    $scope.geSubmitted = function() {
+    $scope.getSubmitted = function() {
         var url="https://imdbokazservice.herokuapp.com/getAllMapper";
         $http.get(url).then(function(response){
             $scope.SubmitCount = response.data;

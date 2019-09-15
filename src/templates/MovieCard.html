@@ -9,12 +9,12 @@
 				  <md-card-content  ng-repeat="s in MoviesCard" >
 						<md-card-title>
 								<md-card-title-text>
-										<span class="md-headline">{{s.title}}</span>
+										<span class="md-headline"><h2><strong class="text-success">{{s.title}}</strong></h2></span>
 				               </md-card-title-text>
 			            </md-card-title>
-					<p>Release Date: {{s.year}}	</p>
-					<p>Rating: {{s.rating}}</p>
-					<p>Description: {{s.description}}	</p>
+					<p><strong class="text-primary">Release Date:</strong>{{s.year}}</p>
+					<p><strong class="text-primary">Rating:</strong> <strong class="text-warning">{{s.rating}}</strong></p>
+					<p><strong class="text-primary">Description:</strong> {{s.description}}	</p>
 					<p><img ng-src="http://image.tmdb.org/t/p/w185//{{s.poster_url}}"></p>
 
 					<button class="btn btn-l btn-primary btn-lg" ng-click="Cancel()">Cancel</button></br></br>
