@@ -68,7 +68,7 @@
 	<div class="col-lg-6">
 		<rd-widget>
 			<rd-widget-header icon="fa-users" title="Users">
-				<input type="text" placeholder="Search" class="form-control input-sm" />
+				<input type="text" placeholder="Search" class="form-control input-sm" ng-model="formData.UserSearch" />
 			</rd-widget-header>
 			<rd-widget-body classes="medium no-padding">
 				<div class="table-responsive">
@@ -76,7 +76,7 @@
 						<thead>
 							<tr><th class="text-left">First Name</th><th>Last Name</th><th>Photo</th></tr>
 						</thead>
-						<tbody ng-repeat="s in UserDetails track by $index" >
+						<tbody ng-repeat="s in UserDetails | filter:formData.UserSearch track by $index" >
 								<tr><td>{{s.first_name}}</td><td>{{s.last_name}}</td><td><img class="img-circle" width="30px" height="30px" ng-src="{{s.image_url}}"></td></tr>
 							  </tbody> 
 					</table>
