@@ -44,6 +44,9 @@
 	<div class="col-lg-6">
 		<rd-widget>
       		<rd-widget-header icon="fa-star fa-spin" title="Favorites">
+					<div class="col-md-6 col-md-offset-5">
+					<button class="btn btn-warning btn-sm" ng-click="ShowDetails()" ng-disabled="HideDetails">Details</button>	
+					</div>
       		</rd-widget-header>
       		<rd-widget-body classes="medium no-padding">
 				<div class="table-responsive">
@@ -111,6 +114,3 @@
 		</rd-widget>
 	</div>
 </div>-->
-<div  class="col-xs-12">
-		<button class="btn btn-l btn-primary btn-lg" ng-click="ShowDetails()" ng-disabled="HideDetails">ShowDetails</button>	
-	</div>
