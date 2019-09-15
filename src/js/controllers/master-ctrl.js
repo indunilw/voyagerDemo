@@ -13,6 +13,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.ExistMovies = [];
     $scope.HideSave =true;
     $scope.ShowAlert = false;
+    $scope.HideDetails = true;
     $scope.formData ={};
     $scope.MoviesNew= [];
     $scope.MovieDetails= [];
@@ -22,6 +23,9 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.MovieListDb={};
     $scope.UserName = "";
     $scope.imageUrl = "";
+    $scope.UserDetails = {};
+    $scope.selectedRowHome = {};
+    $scope.MovieMapperDetails = {};
 
 
     $scope.getWidth = function() {
@@ -108,26 +112,10 @@ function MasterCtrl($scope, $cookieStore,$http) {
             alert("Something not correct!");
         });
     }
-    $scope.getMovie = function(){
-        var url = "#/movies";
-        $http.get(url).then(function(response){
-            $scope.MoviesNew = [
-                {
-                    "title":"The Angry Birds Movie 2",
-                    "release_date":"2019-08-14",
-                    "overview":"Red, Chuck, Bomb and the rest of their feathered friends are surprised when a green pig suggests that they put aside their differences and unite to fight a common threat. Aggressive birds from an island covered in ice are planning to use an elaborate weapon to destroy the fowl and swine.",
-                    "vote_average":"6",
-                    "img":"/ebe8hJRCwdflNQbUjRrfmqtUiNi.jpg"
-                },
-               
-            ];
-        },function(message){
-            alert("Something not correct!");
-        });
-    }
     $scope.Save = function(){
         if($scope.selectedRow !=null){
             $scope.MovieListDb={
+                "email":sessionStorage.getItem('Email'),
                 "movie_id":"null",
                 "tmdb_id":$scope.ExistMovies[$scope.selectedRow].id,
                 "title":$scope.ExistMovies[$scope.selectedRow].title,
@@ -145,11 +133,26 @@ function MasterCtrl($scope, $cookieStore,$http) {
             alert("Something is not correct");
             });
         }else{
-            //post to mapper table.
+            var url = "https://imdbokazservice.herokuapp.com/AddFavoriteMovie";
+            $scope.MovieMapperDetails = {
+                "email":sessionStorage.getItem('Email'),
+                "title":$scope.MoviesNew[$scope.selectedRowFav].title
+            }
+            $http.post(url,$scope.MovieMapperDetails).then(function(response){
+                $scope.ShowAlert=true;
+                $scope.getMovies();
+            },function(message){
+                alert("Something is not correct");
+            });
+
         }
     }
     $scope.Cancel = function(){
         window.location = '#/';
+    }
+    $scope.setClickedRowHome = function(index){
+        $scope.selectedRowHome = index;
+        $scope.HideDetails = false;
     }
     $scope.setClickedRowFav = function(index){
         $scope.selectedRowFav = index;
@@ -167,7 +170,13 @@ function MasterCtrl($scope, $cookieStore,$http) {
         $scope.variablechange =$scope.variable? "Choose from Favorites":"Search Movies";
     }
     $scope.ShowDetails = function(){
-        window.location = '#/popup';
+        var url = "https://imdbokazservice.herokuapp.com/findByTitle/"+$scope.MoviesNew[$scope.selectedRowHome].title;
+        $http.get(url).then(function(response){
+            $scope.MoviesCard = response.data;
+            window.location = '#/popup';
+        },function(message){
+            alert("Error!");
+        });
     }  
     $scope.getUserProfile = function(){
         $scope.UserName = sessionStorage.getItem('Name');
@@ -176,7 +185,21 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.navigate = function(){
         window.location = "#/home";
     }
-
+    $scope.AddUser = function(){
+        $scope.UserDetails={
+            "user_id":"null",
+            "email":sessionStorage.getItem('Email'),
+            "first_name":sessionStorage.getItem('Fname'),
+            "last_name":sessionStorage.getItem('Lname'),
+            "image_url":sessionStorage.getItem('Image'),
+        };
+        var url = "https://imdbokazservice.herokuapp.com/addUser";
+        $http.post(url,$scope.UserDetails).then(function(){
+            $scope.UserDetails={};
+        },function(){
+            alert("Error!");
+        });
+    }
 }
 
 

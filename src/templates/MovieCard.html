@@ -1,27 +1,26 @@
 
-
-	<div data-ng-controller="AlertsCtrl" ng-cloak="" class="carddemoCardActionButtons" ng-app="MyApp" >
+	<div  class="carddemoCardActionButtons" >
 			<md-content class="md-padding" layout-xs="column" layout="row">
 			  <!-- <div flex-xs="" flex-gt-xs="50" layout="column"> -->
 					<div class="col-lg-6"> 
-				<md-card ng-init="getMovie()">
+				<md-card >
 				  <!-- <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out"> -->
 				  
-				  <md-card-content  ng-repeat="s in MoviesNew" >
+				  <md-card-content  ng-repeat="s in MoviesCard" >
 						<md-card-title>
 								<md-card-title-text>
 										<span class="md-headline">{{s.title}}</span>
 				               </md-card-title-text>
 			            </md-card-title>
-					<p>Release Date: {{s.release_date}}	</p>
-					<p>Rating: {{s.vote_average}}</p>
-					<p>Description: {{s.overview}}	</p>
-					<p><img ng-src="http://image.tmdb.org/t/p/w185//{{s.img}}"></p>
+					<p>Release Date: {{s.year}}	</p>
+					<p>Rating: {{s.rating}}</p>
+					<p>Description: {{s.description}}	</p>
+					<p><img ng-src="http://image.tmdb.org/t/p/w185//{{s.poster_url}}"></p>
+
+					<button class="btn btn-l btn-primary btn-lg" ng-click="Cancel()">Cancel</button></br></br>
 										
 				  </md-card-content>
-				  <div  class="col-xs-12">
-						<button class="btn btn-l btn-primary btn-lg" ng-click="Cancel()">Cancel</button></br></br>
-					</div>
+				  
 				</md-card>
 			   
 				

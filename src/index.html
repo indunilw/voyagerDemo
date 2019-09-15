@@ -43,7 +43,9 @@
         sessionStorage.setItem('Name',profile.getName());
         sessionStorage.setItem('Image',profile.getImageUrl());
         sessionStorage.setItem('Email',profile.getEmail());
-        window.location.replace("/home.html");
+        sessionStorage.setItem('Fname',profile.getGivenName());
+        sessionStorage.setItem('Lname',profile.getFamilyName());
+        window.location.replace('home.html');
     }
     </script>
     <div class="container">

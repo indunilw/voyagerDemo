@@ -28,7 +28,7 @@
     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
     
 </head>
-<body ng-controller="MasterCtrl", ng-app="YourApp">
+<body ng-controller="MasterCtrl", ng-app="YourApp" ng-init="AddUser()">
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
     <!-- Sidebar -->
@@ -89,16 +89,6 @@
                       Profile
                     </a>
                   </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
                   <li class="divider"></li>
                   <li class="link">
                     <a href="#">
@@ -117,7 +107,7 @@
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <a href="#">Server Down!</a>
+                    <a href="#">Welcome to IMDBokaz</a>
                   </li>
                 </ul>
               </div>
