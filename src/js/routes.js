@@ -26,6 +26,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('popup',{
                 url: '/popup',
                 templateUrl: 'templates/MovieCard.html'
+            })
+            .state('login',{
+                url:'/login',
+                templateUrl:'templates/tables.html'
             });
             
     }

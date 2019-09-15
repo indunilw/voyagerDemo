@@ -20,6 +20,8 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.variablechange ="Search Movies";
     $scope.MovieCount=0;
     $scope.MovieListDb={};
+    $scope.UserName = "";
+    $scope.imageUrl = "";
 
 
     $scope.getWidth = function() {
@@ -166,9 +168,15 @@ function MasterCtrl($scope, $cookieStore,$http) {
     }
     $scope.ShowDetails = function(){
         window.location = '#/popup';
+    }  
+    $scope.getUserProfile = function(){
+        $scope.UserName = sessionStorage.getItem('Name');
+        $scope.imageUrl = sessionStorage.getItem('Image');
+    }
+    $scope.navigate = function(){
+        window.location = "#/home";
     }
 
-    
 }
 
 

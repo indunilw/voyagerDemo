@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="RDash">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="google-signin-client_id" content="560301507542-s554ph00778ld6fqckh3rum1pegobugi.apps.googleusercontent.com">
 
   <title>RDash AngularJS</title>
 
@@ -26,119 +26,45 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-aria/angular-aria.js"></script>
+    <script src="/node_modules/angular-animate/angular-animate.js"></script>
+    <script src="/node_modules/angular-messages/angular-messages.js"></script>
+    <script src="/node_modules/angular-material/angular-material.js"></script>
+    <script src="https://code.angularjs.org/1.2.18/angular.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
     
 </head>
-<body ng-controller="MasterCtrl", ng-app="YourApp">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar">
-        <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
-            IMDBokaz
-            <span class="menu-icon glyphicon glyphicon-transfer"></span>
-          </a>
-        </li>
-        <li class="sidebar-title"><span>NAVIGATION</span></li>
-        <li class="sidebar-list">
-          <a href="#">Favorities <span class="menu-icon fa fa-star"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/tables">Choose movie <span class="menu-icon fa fa-film"></span></a>
-        </li>
-      </ul>
-      <div class="sidebar-footer">
-        <div class="col-xs-4">
-          <a href="https://imdbokaz.firebaseapp.com/" target="_blank">
-            IMDBokaz
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular/blob/master/README.md" target="_blank">
-            About
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="#">
-            Support
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- End Sidebar -->
-
-    <div id="content-wrapper">
-      <div class="page-content">
-
-        <!-- Header Bar -->
-        <div class="row header">
-          <div class="col-xs-12">
-            <div class="user pull-right">
-              <div class="item dropdown" uib-dropdown>
-                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <img src="img/avatar.jpg">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    Joe Bloggs
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="#">
-                      Profile
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="#">
-                      Logout
-                    </a>
-                  </li>
-                </ul>
+<body>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        sessionStorage.setItem('Name',profile.getName());
+        sessionStorage.setItem('Image',profile.getImageUrl());
+        sessionStorage.setItem('Email',profile.getEmail());
+        window.location.replace("/home.html");
+    }
+    </script>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="loginBox" style="padding-top: 100px;">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h2>Log in</h2>
+                    <h4>Please login with your Google account to proceed.</h4>
+                </div>
               </div>
-              <div class="item dropdown" uib-dropdown>
-               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <i class="fa fa-bell-o"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    Notifications
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#">Server Down!</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="meta">
-              <div class="page">
-                Dashboard
-              </div>
-              <div class="breadcrumb-links">
-                Home / Dashboard
+              <hr>
+              <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                  </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- End Header Bar -->
-
-        <!-- Main Content -->
-        <div ui-view></div>
-
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
-  </div><!-- End Page Wrapper -->
+      </div>
 </body>
 </html>
