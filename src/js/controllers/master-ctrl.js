@@ -19,6 +19,8 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.MovieDetails= [];
     $scope.selectedRow = 999;
     $scope.variablechange ="Search Movies";
+    $scope.classchange = "fa fa-search"
+    $scope.stylecolor = "Black";
     $scope.MovieCount=0;
     $scope.MovieListDb={};
     $scope.UserName = "";
@@ -168,6 +170,8 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.ButtonSwitch = function(){
         $scope.variable=!$scope.variable;
         $scope.variablechange =$scope.variable? "Choose from Favorites":"Search Movies";
+        $scope.classchange = $scope.variable? "fa fa-heart":"fa fa-search";
+        $scope.stylecolor = $scope.variable? "Red":"Black";
     }
     $scope.ShowDetails = function(){
         var url = "https://imdbokazservice.herokuapp.com/findByTitle/"+$scope.MoviesNew[$scope.selectedRowHome].title;

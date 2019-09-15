@@ -5,11 +5,11 @@
         </div>
       </div>
       <div class="col-xs-12 col1">
-          <button type="button" class="btn btn-l btn-warning " class="text-center" ng-click="ButtonSwitch()">{{variablechange}}</button>
+          <button type="button" class="btn btn-l btn-warning " class="text-center" ng-click="ButtonSwitch()"><i class="{{classchange}}" style="color:{{stylecolor}}" aria-hidden="true"></i>    {{variablechange}}</button>
       </div>
     <div class="col-lg-12" ng-hide="variable">
         <rd-widget>
-          <rd-widget-header icon="fa-star fa-pulse" title="Choose from favorites">
+          <rd-widget-header icon="fa fa-heart fa-pulse" title="Choose from favorites">
           </rd-widget-header>
           <rd-widget-body classes="large no-padding">
             <div class="table-responsive">
@@ -46,7 +46,7 @@
 		<rd-widget>
   </div>
   <div  class="col-xs-12">
-      <button class="btn btn-l btn-warning " ng-click="Save()" ng-disabled="HideSave">Save</button>
+      <button class="btn btn-l btn-warning " ng-click="Save()" ng-disabled="HideSave"><i class="fa fa-floppy-o" style="color:black" aria-hidden="true"></i>   Save</button>
       <button class="btn btn-l btn-default " ng-click="Cancel()">Cancel</button>
   </div>
 </div>
