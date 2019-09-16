@@ -28,6 +28,8 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.UserDetails = {};
     $scope.selectedRowHome = {};
     $scope.MovieMapperDetails = {};
+    $scope.percentage = 0.0;
+    $scope.totalcount= 0;
 
 
     $scope.getWidth = function() {
@@ -98,7 +100,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
     }
 
     $scope.getMovies = function(){
-        var url = "https://imdbokazservice.herokuapp.com/getMovies";
+        var url = "https://imdbokazservice.herokuapp.com/getFavoriteMovies";
         $http.get(url).then(function(response){
             $scope.MoviesNew = response.data;
         },function(message){
@@ -138,7 +140,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
             var url = "https://imdbokazservice.herokuapp.com/AddFavoriteMovie";
             $scope.MovieMapperDetails = {
                 "email":sessionStorage.getItem('Email'),
-                "title":$scope.MoviesNew[$scope.selectedRowFav].title
+                "title":$scope.MoviesNew[$scope.selectedRowFav][0]
             }
             $http.post(url,$scope.MovieMapperDetails).then(function(response){
                 $scope.ShowAlert=true;
@@ -174,7 +176,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
         $scope.stylecolor = $scope.variable? "Red":"Black";
     }
     $scope.ShowDetails = function(){
-        var url = "https://imdbokazservice.herokuapp.com/findByTitle/"+$scope.MoviesNew[$scope.selectedRowHome].title;
+        var url = "https://imdbokazservice.herokuapp.com/findByTitle/"+$scope.MoviesNew[$scope.selectedRowHome][0];
         $http.get(url).then(function(response){
             $scope.MoviesCard = response.data;
             window.location = '#/popup';
