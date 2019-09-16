@@ -134,7 +134,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
                 $scope.ShowAlert=true;
                 $scope.getMovies();
             },function(){
-            alert("Something is not correct");
+                alert("Something is not correct");
             });
         }else{
             var url = "https://imdbokazservice.herokuapp.com/AddFavoriteMovie";
