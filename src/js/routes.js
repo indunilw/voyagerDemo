@@ -33,7 +33,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('about',{
                 url:'/about',
-                templateUrl:'About.html'
+                templateUrl:'templates/About.html'
             });
             
     }
