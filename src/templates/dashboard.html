@@ -11,8 +11,8 @@
 				<div class="widget-icon green pull-left">
 					<i class="fa fa-users"></i>
 				</div>
-				<div class="title" ng-init="getUsers()">28</div>
-				<div class="comment" >Total Users</div>
+				<div class="title" ng-init="getUsers()">{{UserCount.length}}</div>
+				<div class="comment" >Users</div>
 			</rd-widget-body>
 		</rd-widget>
 	</div>
@@ -33,7 +33,7 @@
 				<div class="widget-icon blue pull-left">
 					<i class="fa fa-film"></i>
 				</div>
-				<div class="title" ng-init="getNoOfMovies()">{{MovieCount.length}}</div>
+				<div class="title" ng-init="getNoOfMovies()">{{MoviesNew.length}}</div>
 				<div class="comment">Movies</div>
 			</rd-widget-body>
 		</rd-widget>
