@@ -176,7 +176,7 @@ function MasterCtrl($scope, $cookieStore,$http) {
         $scope.stylecolor = $scope.variable? "Red":"Black";
     }
     $scope.ShowDetails = function(){
-        var url = "https://imdbokazservice.herokuapp.com/findByTitle/"+$scope.MoviesNew[$scope.selectedRowHome].title;
+        var url = "https://imdbokazservice.herokuapp.com/findByTitle/"+$scope.MoviesNew[$scope.selectedRowHome][0];
         $http.get(url).then(function(response){
             $scope.MoviesCard = response.data;
             window.location = '#/popup';

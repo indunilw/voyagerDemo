@@ -60,8 +60,8 @@
 							  </thead>
 							<tbody ng-repeat="s in MoviesNew track by $index" >
 								<tr ng-init= "Progress($index)" ng-click="setClickedRowHome($index)" ng-class="{'info':$index==selectedRowHome}"><td>{{s[0]}}</td><td><img class="img-fluid img-thumbnail" width="30px" height="30px" ng-src="http://image.tmdb.org/t/p/w185//{{s[3]}}"></td><td width="50%">
-									<div class="progress">
-									<div class="progress-bar" role="progressbar" style="width: {{s[5]*7}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{s[5]}}</div>
+									<div class="progress ">
+									<div class="progress-bar  bg-danger" role="progressbar" style="width: {{s[5]*7}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{s[5]}}</div>
 								  </div></td></tr>
 							  </tbody> 
 						</table>
