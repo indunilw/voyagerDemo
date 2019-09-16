@@ -33,7 +33,18 @@
     <script src="/node_modules/angular-material/angular-material.js"></script>
     <script src="https://code.angularjs.org/1.2.18/angular.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
-    
+    <style>
+      
+    body {
+      background-color: lightblue;
+    }
+
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+      </style>
 </head>
 <body>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -48,16 +59,16 @@
         window.location.replace('home.html');
     }
     </script>
-    <div class="container">
+    <div class="container" >
         <div class="row">
           <div class="col-md-20">
             <div class="loginBox" style="padding-top: 100px;">
               <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h4 class="text-success">Please login with your Google account to proceed.</h4>
+                    <img src="img/avatar.jpg" class="img-circle" width="100px" height="100px" class="center"> </br>
+                    <h4 class="text-primary"><strong>Please login with your Google account to proceed.</strong></h4>
                 </div>
               </div>
-              <hr>
               <div class="row">
                   <div class="col-md-6 col-md-offset-3">
                     <div class="g-signin2" data-width="480" data-height="50" data-longtitle="true" data-onsuccess="onSignIn"></div>
