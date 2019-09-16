@@ -30,6 +30,9 @@ function MasterCtrl($scope, $cookieStore,$http) {
     $scope.MovieMapperDetails = {};
     $scope.percentage = 0.0;
     $scope.totalcount= 0;
+    $scope.successClass = [];
+    $scope.submittedClass = [];
+    $scope.checkSubmitted = [];
 
 
     $scope.getWidth = function() {
@@ -205,6 +208,26 @@ function MasterCtrl($scope, $cookieStore,$http) {
         },function(){
             alert("Error!");
         });
+    }
+    $scope.userSubmitted = function(index){
+        var url = "https://imdbokazservice.herokuapp.com/findByUser/"+$scope.UserDetails[index].user_id;
+
+        $http.get(url).then(function(response){
+            $scope.checkSubmitted = [];
+            $scope.checkSubmitted = response.data;
+            if($scope.checkSubmitted.length == 0){
+                $scope.successClass[index] = "text-danger";
+                $scope.submittedClass[index] = "fa-times";
+            }else{
+                $scope.successClass[index] = "text-success";
+                $scope.submittedClass[index] = "fa-check";
+            }
+        },function(message){
+            alert("Something is Wrong!");
+        });
+
+
+
     }
 }
 

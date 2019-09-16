@@ -78,10 +78,10 @@
 				<div class="table-responsive">
 					<table class="table" ng-init="getUserDetails()">
 						<thead>
-							<tr><th class="text-left">First Name</th><th>Last Name</th><th>Photo</th></tr>
+							<tr><th class="text-left">First Name</th><th>Last Name</th><th>Photo</th><th>Submitted</th></tr>
 						</thead>
 						<tbody ng-repeat="s in UserDetails | filter:formData.UserSearch track by $index" >
-								<tr><td>{{s.first_name}}</td><td>{{s.last_name}}</td><td><img class="img-circle" width="30px" height="30px" ng-src="{{s.image_url}}"></td></tr>
+								<tr ng-init=userSubmitted($index)><td>{{s.first_name}}</td><td>{{s.last_name}}</td><td><img class="img-circle" width="30px" height="30px" ng-src="{{s.image_url}}"></td><td><span  class="{{successClass[$index]}}"><div align="center"><i class="fa {{submittedClass[$index]}}"></i></div></span></td></tr>
 							  </tbody> 
 					</table>
         		</div>
