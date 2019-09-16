@@ -88,6 +88,11 @@ function MasterCtrl($scope, $cookieStore,$http) {
     window.onresize = function() {
         $scope.$apply();
     };
+    window.onload = function(){
+        gapi.load('auth2', function() {
+            gapi.auth2.init();
+          });
+    }
     
     $scope.getExistingMovies = function(){
         if($scope.formData.SearchMovies!=""){
@@ -225,9 +230,12 @@ function MasterCtrl($scope, $cookieStore,$http) {
         },function(message){
             alert("Something is Wrong!");
         });
-
-
-
+    }
+    $scope.logOut = function(){
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              window.location="/index.html";
+            });
     }
 }
 
