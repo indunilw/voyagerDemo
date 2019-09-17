@@ -14,7 +14,7 @@ function AlertsCtrl($scope) {
 
     $scope.alerts2 =[{
         type: 'success',
-        msg: 'Thank you!.  Your response has been submitted.'
+        msg: 'Thank you! Your response has been submitted.'
     }];
 
     $scope.addAlert = function() {
